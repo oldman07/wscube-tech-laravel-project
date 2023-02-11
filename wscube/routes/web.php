@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/beginner/{name}/{id?}', function ($name,$id = null) {
+    // echo $name;
+   $data = compact('name','id');
+    return view('beginner')->with($data);
+});
+Route::get('/intermediate/{firstname}/{lastname?}', function ($firstname,$lastname = 'glow') {
+    $lastname = 89;
+    $data = compact('firstname','lastname');
+    return view('intermediate')->with($data);
+});
+route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $image , $price){
+    $product_data = compact('product_name','image','price');
+    return view('expert')->with($product_data);
+});
