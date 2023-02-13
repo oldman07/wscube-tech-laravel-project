@@ -4,8 +4,17 @@
     <h3>{{ $name }}</h3>
 @endif
 
-<h3>{{ $id }}</h3> --}}
+<h3>{{ $id }}</h3> 
 
 @for($i = 0;$i< 3;$i++)
     <h1>counting is : {{$i}}</h1>
-@endfor
+@endfor --}}
+
+<?php 
+$arr = ['ali','ahmed',1];
+?>
+<select name="" id="">
+@foreach ($arr as $arr)
+    <option>{{ $arr }} </option>
+@endforeach
+</select>
