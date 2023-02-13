@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BeginnerController;
+use App\Http\Controllers\IntermediateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +51,7 @@ Route::get('/expert', function () {
     
     return view('expert');
 });
+
+
+Route::resource('beginner',BeginnerController::class);
+Route::resource('intermediate',IntermediateController::class);

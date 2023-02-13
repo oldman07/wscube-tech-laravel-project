@@ -1,4 +1,4 @@
-@yield('layouts.main')
+@extends('layouts.main')
 @section('main-section')
 <h1> I am view of intermediate</h1>
 
@@ -7,7 +7,6 @@
 @foreach($countries as $country)
     {{$country}}
 @endforeach
-
 
 {{-- @if($firstname == 'ali')
     <h3>Welcome {{ $firstname }}</h3>
