@@ -1,3 +1,5 @@
+@extends('layouts.main')
+@section('main-section')
 <h1> I am view of begginer</h1>
 
 {{-- @if($name == 'habibali')
@@ -18,3 +20,5 @@ $arr = ['ali','ahmed',1];
     <option>{{ $arr }} </option>
 @endforeach
 </select>
+
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.expert_main')
+@section('expert-main-section')
+
 <h1> I am view of expert</h1>
 <h2>Here is the product single page</h2>
 
@@ -32,3 +35,5 @@ $number = ['beginner','intermediate','expert']; ?>
 <h1>you are in level {{ $number[$counter] }} </h1>
     <?php $counter ++; ?> 
 @endwhile --}}
+
+@endsection
