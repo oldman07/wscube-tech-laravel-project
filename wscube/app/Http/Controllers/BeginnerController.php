@@ -13,7 +13,7 @@ class BeginnerController extends Controller
      */
     public function index()
     {
-        echo 'this is index controller';
+        return view('forms/beginner');
     }
 
     /**
@@ -45,7 +45,7 @@ class BeginnerController extends Controller
      */
     public function show($id)
     {
-        //
+        echo 'i am show method from beginner controller';
     }
 
     /**
@@ -80,5 +80,10 @@ class BeginnerController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function show_data(Requests $request)
+    {
+        echo 'me';
+        print_r($request->all());
     }
 }

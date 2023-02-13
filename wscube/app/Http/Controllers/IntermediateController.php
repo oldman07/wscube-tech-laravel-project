@@ -14,7 +14,7 @@ class IntermediateController extends Controller
     public function index()
     {    //passing data along view
         
-        return view('intermediate');
+        return view('forms/intermediate');
     }
 
     /**
@@ -81,5 +81,10 @@ class IntermediateController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function show_data(Request $request)
+    {
+        echo 'me';
+        print_r($request->all());
     }
 }

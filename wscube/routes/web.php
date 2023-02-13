@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeginnerController;
+use App\Http\Controllers\BeginnerSimpleController;
 use App\Http\Controllers\IntermediateController;
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,10 @@ Route::get('/intermediate/{firstname}/{lastname?}', function ($firstname,$lastna
     return view('intermediate')->with($data);
 });
 
-Route::get('/intermediate', function () {
+// Route::get('/intermediate', function () {
     
-    return view('intermediate');
-});
+//     return view('intermediate');
+// });
 
 route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $image , $price){
     $product_data = compact('product_name','image','price');
@@ -54,4 +55,8 @@ Route::get('/expert', function () {
 
 
 Route::resource('beginner',BeginnerController::class);
+//simple controller routes
+Route::get('/simple_index',[BeginnerSimpleController::class,'index']);
+Route::post('/show_us',[BeginnerSimpleController::class,'show_us']);
 Route::resource('intermediate',IntermediateController::class);
+Route::post('/intermediate/show_data',[IntermediateController::class,'show_data']);
