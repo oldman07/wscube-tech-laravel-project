@@ -83,6 +83,7 @@ class BeginnerController extends Controller
     }
     public function show_data(Requests $request)
     {
+      
         echo 'me';
         print_r($request->all());
     }

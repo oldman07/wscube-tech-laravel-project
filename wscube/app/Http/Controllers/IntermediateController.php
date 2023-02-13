@@ -84,6 +84,13 @@ class IntermediateController extends Controller
     }
     public function show_data(Request $request)
     {
+        $request->validate(
+            [
+                'email'=> 'required',
+                'psw'=> 'required',
+                'psw-repeat'=> 'required'
+            ]
+            );
         echo 'me';
         print_r($request->all());
     }
