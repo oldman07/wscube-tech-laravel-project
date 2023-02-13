@@ -45,3 +45,8 @@ route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $i
     $product_data = compact('product_name','image','price');
     return view('expert')->with($product_data);
 });
+
+Route::get('/expert', function () {
+    
+    return view('expert');
+});
