@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeginnerController;
 use App\Http\Controllers\BeginnerSimpleController;
 use App\Http\Controllers\IntermediateController;
+use App\Http\Controllers\ExpertController;
+use App\Models\Beginner;
+use App\Models\Intermediate;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +21,14 @@ use App\Http\Controllers\IntermediateController;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/beginner', function () {
-    
+
     return view('beginner');
 });
 
@@ -39,7 +47,7 @@ Route::get('/intermediate/{firstname}/{lastname?}', function ($firstname,$lastna
 });
 
 // Route::get('/intermediate', function () {
-    
+
 //     return view('intermediate');
 // });
 
@@ -49,7 +57,7 @@ route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $i
 });
 
 Route::get('/expert', function () {
-    
+
     return view('expert');
 });
 
@@ -59,4 +67,23 @@ Route::resource('beginner',BeginnerController::class);
 Route::get('/simple_index',[BeginnerSimpleController::class,'index']);
 Route::post('/show_us',[BeginnerSimpleController::class,'show_us']);
 Route::resource('intermediate',IntermediateController::class);
+Route::resource('expert',ExpertController::class);
 Route::post('/intermediate/show_data',[IntermediateController::class,'show_data']);
+Route::post('/expert/expert_data',[ExpertController::class,'show_data']);
+
+Route::get('/beginner_data', function(){
+  echo 'me';
+
+});
+
+Route::get('/beginner-data', function () {
+    $beginner  = Beginner::all();
+    echo '<pre>';
+    print_r($beginner);
+ });
+
+ Route::get('/intermediate-data', function(){
+    $intermediate = Intermediate::all();
+    echo '<pre>';
+    print_r($intermediate);
+ });
