@@ -17,7 +17,7 @@ class BeginnerSimpleController extends Controller
                 'first_name' => 'required'
             ]
         );
-        echo 'go';
+        // echo 'go';
         print_r($request->all());
     }
 }
