@@ -40,7 +40,9 @@ class ExpertController extends Controller
         $expert->email = $request['email'];
         $expert->save();
 
-        return redirect('');
+        $expert = Expert::all();
+        $data = compact('expert');
+        return view('expert_view')->with($data);
 
     }
 
