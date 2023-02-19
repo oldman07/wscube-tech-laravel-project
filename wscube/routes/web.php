@@ -23,6 +23,14 @@ use App\Models\Intermediate;
 
 
 
+
+
+Route::get('/beginner-data', function () {
+    $beginner  = Beginner::all();
+    echo '<pre>';
+    print_r($beginner);
+ });
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,7 +41,7 @@ Route::get('/beginner', function () {
 });
 
 Route::get('/beginner/{name}/{id?}', function ($name,$id = null) {
-    // echo $name;
+
    $data = compact('name','id');
     return view('beginner')->with($data);
 });
@@ -46,44 +54,38 @@ Route::get('/intermediate/{firstname}/{lastname?}', function ($firstname,$lastna
     return view('intermediate')->with($data);
 });
 
-// Route::get('/intermediate', function () {
 
-//     return view('intermediate');
-// });
 
-route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $image , $price){
-    $product_data = compact('product_name','image','price');
-    return view('expert')->with($product_data);
-});
-
-Route::get('/expert', function () {
-
-    return view('expert');
-});
 
 
 Route::resource('beginner',BeginnerController::class);
-//simple controller routes
-Route::get('/simple_index',[BeginnerSimpleController::class,'index']);
+Route::get('/simple_index',[BeginnerSimpleController::class,'index'])->name('custom.route');
+Route::get('/simple_data',[BeginnerSimpleController::class,'index']);
 Route::post('/show_us',[BeginnerSimpleController::class,'show_us']);
 Route::resource('intermediate',IntermediateController::class);
 Route::resource('expert',ExpertController::class);
+
+
 Route::post('/intermediate/show_data',[IntermediateController::class,'show_data']);
 Route::post('/expert/expert_data',[ExpertController::class,'show_data']);
 
+
 Route::get('/beginner_data', function(){
-  echo 'me';
+    echo 'me';
 
-});
+  });
 
-Route::get('/beginner-data', function () {
-    $beginner  = Beginner::all();
-    echo '<pre>';
-    print_r($beginner);
- });
 
- Route::get('/intermediate-data', function(){
-    $intermediate = Intermediate::all();
-    echo '<pre>';
-    print_r($intermediate);
- });
+
+   Route::get('/intermediate-data', function(){
+      $intermediate = Intermediate::all();
+      echo '<pre>';
+      print_r($intermediate);
+   });
+
+   route::get('/expert/{product_name}/{image}/{price}',function ($product_name , $image , $price){
+      $product_data = compact('product_name','image','price');
+      return view('expert')->with($product_data);
+  });
+
+

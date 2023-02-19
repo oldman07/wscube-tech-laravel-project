@@ -5,6 +5,8 @@
 <form action="{{url('/')}}/show_us" method = 'post'>
 @csrf
 
-  <x-output name='hello'/>   
+  <x-output name='hello'/>
 
 </form>
+<?php
+p();

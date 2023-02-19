@@ -8,12 +8,12 @@ class BeginnerSimpleController extends Controller
 {
     public function index()
     {
-        return view('forms/beginner');
+        return 'forms/beginner';
     }
     public function show_us(Request $request)
     {
         $request->validate(
-            [ 
+            [
                 'first_name' => 'required'
             ]
         );

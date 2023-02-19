@@ -40,9 +40,10 @@ class ExpertController extends Controller
         $expert->email = $request['email'];
         $expert->save();
 
-        $expert = Expert::all();
-        $data = compact('expert');
+        $experts = Expert::all();
+        $data = compact('experts');
         return view('expert_view')->with($data);
+
 
     }
 
@@ -54,7 +55,7 @@ class ExpertController extends Controller
      */
     public function show($id)
     {
-        //
+        echo 'show';
     }
 
     /**
@@ -88,6 +89,13 @@ class ExpertController extends Controller
      */
     public function destroy($id)
     {
-        //
+       echo 'i am delete';
     }
+
+    public function show_data()
+    {
+        echo 'me';
+
+    }
+
 }
