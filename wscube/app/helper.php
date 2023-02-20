@@ -2,8 +2,10 @@
 
 
 if (!function_exists('p')) {
-    function p()
+    function p($data)
     {
-        echo 'helper called here';
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
     }
 }

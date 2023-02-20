@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\BeginnerController;
 use App\Http\Controllers\BeginnerSimpleController;
 use App\Http\Controllers\IntermediateController;
 use App\Http\Controllers\ExpertController;
 use App\Models\Beginner;
 use App\Models\Intermediate;
+
 
 
 
@@ -89,3 +91,19 @@ Route::get('/beginner_data', function(){
   });
 
 
+Route::get('get-all-session',function(){
+    $session = session()->all();
+    p($session);
+});
+
+Route::get('set-all-session',function(Request $request){
+    $request->session()->put('user_name','sniper');
+    $request->session()->put('user_id','123');
+    return redirect('get-all-session');
+});
+
+Route::get('destroy-session',function(){
+    session()->forget('user_name');
+    session()->forget('user_id');
+    return redirect('get-all-session');
+});
